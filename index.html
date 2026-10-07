@@ -104,7 +104,7 @@
 
   <section>
     <h3>1. Data Storage</h3>
-    <p>All of your business data created within Buklix &mdash; documents, customer information, product catalogs, expense records, financial reports, and account credentials &mdash; is stored exclusively on your local device using IndexedDB. None of that data is ever uploaded to any server, cloud service, or third party, and none of it is readable by anyone other than you. Your records reside physically only on the device you use.</p>
+    <p>All of your business data created within Buklix &mdash; documents, customer information, product catalogs, expense records, financial reports, and account credentials &mdash; is stored exclusively on your local device using IndexedDB. None of that data is ever uploaded to any server, cloud service, or third party, and none of it is readable by anyone other than you. Your records reside physically only on the device you use, unless you yourself export a backup file and choose to store or share it elsewhere.</p>
     <p class="sub">Some parts of the application do make network requests of their own, but they carry none of your business data. The advertising and purchase components described in section 2 contact Google servers for advertisements, consent, and licence checks using an advertising identifier &mdash; never your records. Buklix sends no document, customer, product, expense, report, or credential content anywhere.</p>
     <p class="sub">Buklix is a single-account application. Exactly one account exists on each device installation: there are no team accounts, shared workspaces, staff logins, or user profiles that another person can view, manage, or request access to. Everything you enter is visible only to you, on this device.</p>
   </section>
@@ -126,7 +126,7 @@
 
   <section>
     <h3>4. Backup &amp; Export</h3>
-    <p>The application performs automatic backups every 60 seconds to a local backup file (autobackup.abs) stored on your device. You may also manually export your data to .abs files or import previously created backups. These backup files contain all your business data in JSON format. You are solely responsible for how you store, share, or transmit these files.</p>
+    <p>The application performs automatic backups every 60 seconds to a local backup file (autobackup.buk) stored inside the application's private storage on your device. You may also manually export your data to .buk files from the Backup &amp; Restore tab. When you do, the Android file picker lets you choose the destination yourself: your device's internal storage, an SD card, a USB drive, or a cloud location such as Google Drive. Buklix does not upload anything on its own; the destination you pick is written to by the system file picker, and the file is only shared if you share it. You may also import previously created backups from the same picker. These backup files contain all your business data in JSON format, and a backup may also contain your account name and its salted password hash so that your sign-in can be recreated on a new installation. You are solely responsible for how you store, share, or transmit these files.</p>
   </section>
 
   <section>
@@ -137,7 +137,7 @@
 
   <section>
     <h3>6. Data Portability &amp; Deletion</h3>
-    <p>You have full control over your data at all times. You may export your complete data set as a .abs backup file from the Backup &amp; Restore tab. To delete all data, uninstall the application or clear app data. Creating a manual backup before uninstalling is recommended, as data removal is permanent and irreversible.</p>
+    <p>You have full control over your data at all times. You may export your complete data set as a .buk backup file from the Backup &amp; Restore tab. To delete all data, uninstall the application or clear app data. Creating a manual backup before uninstalling is recommended, as data removal is permanent and irreversible.</p>
   </section>
 
   <section>
