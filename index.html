@@ -3,171 +3,440 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Privacy Policy — Buklix</title>
-<meta name="description" content="Privacy Policy for the Buklix Android application. All data stays on your device.">
+<title>Buklix — Privacy Policy, Features &amp; How to Use</title>
+<meta name="description" content="Privacy Policy for the Buklix Android application, plus the app's features and a step-by-step user guide. All data stays on your device.">
+<meta name="theme-color" content="#1D006F">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://kisswardmultimedia.github.io/buklix-privacy/">
+<meta property="og:title" content="Buklix — Privacy Policy, Features &amp; How to Use">
+<meta property="og:description" content="Offline bookkeeping for Android. Invoices, receipts, backups and reports — your data stays on your phone.">
+<meta property="og:image" content="assets/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" href="assets/favicon-192.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 <style>
   :root {
-    --gray-50: #f9fafb;
-    --gray-100: #f3f4f6;
-    --gray-200: #e5e7eb;
-    --gray-400: #9ca3af;
-    --gray-600: #4b5563;
-    --gray-900: #111827;
-    --emerald-700: #047857;
+    --navy: #1D006F;
+    --navy-dark: #150054;
+    --navy-soft: #EFECE3;
+    --cream: #F8F7F3;
+    --ink: #1C1B2E;
+    --body: #454459;
+    --muted: #77768C;
+    --line: #E7E5DC;
+    --white: #ffffff;
+    --radius: 16px;
   }
   * { box-sizing: border-box; }
-  html { -webkit-text-size-adjust: 100%; }
+  html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
   body {
     margin: 0;
-    background: #ffffff;
-    color: var(--gray-600);
+    background: var(--white);
+    color: var(--body);
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     font-size: 16px;
-    line-height: 1.625;
+    line-height: 1.65;
     -webkit-font-smoothing: antialiased;
   }
-  header {
-    background: var(--gray-50);
-    border-bottom: 1px solid var(--gray-200);
-    padding: 24px 20px;
+  img { max-width: 100%; display: block; }
+  a { color: var(--navy); }
+  .wrap { max-width: 1120px; margin: 0 auto; padding: 0 20px; }
+  .narrow { max-width: 48rem; margin: 0 auto; padding: 0 20px; }
+
+  /* ---- sticky nav ---- */
+  .site-nav {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(255,255,255,.94);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--line);
   }
-  header .wrap, main.wrap { max-width: 48rem; margin: 0 auto; }
-  header h1 {
-    margin: 0;
-    color: var(--gray-900);
-    font-size: 1.5rem;
-    line-height: 1.25;
-    font-weight: 700;
-    letter-spacing: -0.01em;
+  .site-nav .wrap { display: flex; align-items: center; gap: 18px; min-height: 62px; }
+  .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; margin-right: auto; }
+  .brand img { width: 34px; height: 34px; }
+  .brand b { color: var(--ink); font-size: 1.0625rem; letter-spacing: -.01em; }
+  .site-nav nav { display: flex; gap: 20px; }
+  .site-nav nav a {
+    color: var(--body); text-decoration: none; font-size: .875rem; font-weight: 600;
+    padding: 6px 2px; border-bottom: 2px solid transparent;
   }
-  header p { margin: 6px 0 0; font-size: 0.875rem; color: var(--gray-400); }
-  main.wrap { padding: 28px 20px 56px; }
-  section { margin-bottom: 28px; }
-  h2 {
-    margin: 0 0 4px;
-    color: var(--gray-900);
-    font-size: 1.125rem;
-    font-weight: 700;
-    line-height: 1.4;
+  .site-nav nav a:hover { color: var(--navy); border-bottom-color: var(--navy); }
+
+  /* ---- hero ---- */
+  .hero { background: var(--cream); border-bottom: 1px solid var(--line); overflow: hidden; }
+  .hero .wrap {
+    display: grid; grid-template-columns: 1.15fr .85fr; gap: 48px;
+    align-items: center; padding-top: 64px; padding-bottom: 64px;
   }
-  h3 {
-    margin: 0 0 6px;
-    color: var(--gray-900);
-    font-size: 0.9375rem;
-    font-weight: 600;
-    line-height: 1.5;
+  .hero .mark { width: 84px; height: 84px; margin-bottom: 22px; }
+  .eyebrow {
+    margin: 0 0 14px; font-size: .8125rem; font-weight: 700; letter-spacing: .16em;
+    text-transform: uppercase; color: var(--navy);
   }
-  p { margin: 0 0 10px; }
-  p:last-child { margin-bottom: 0; }
-  p.sub { margin-top: 10px; }
-  a { color: var(--emerald-700); text-decoration: underline; }
+  .hero h1 {
+    margin: 0 0 18px; color: var(--ink);
+    font-size: clamp(2.1rem, 4.6vw, 3.3rem); line-height: 1.07; letter-spacing: -.02em;
+  }
+  .hero h1 span { color: var(--navy); }
+  .hero .lede { margin: 0 0 26px; font-size: 1.0625rem; max-width: 34rem; }
+  .cta-row { display: flex; flex-wrap: wrap; gap: 12px; }
+  .btn {
+    display: inline-block; padding: 13px 24px; border-radius: 999px;
+    font-size: .9375rem; font-weight: 700; text-decoration: none;
+  }
+  .btn-primary { background: var(--navy); color: #fff; }
+  .btn-primary:hover { background: var(--navy-dark); }
+  .btn-ghost { background: transparent; color: var(--navy); border: 1.5px solid var(--navy); }
+  .btn-ghost:hover { background: var(--navy); color: #fff; }
+  .hero .fine { margin: 20px 0 0; font-size: .8125rem; color: var(--muted); }
+  .phone {
+    justify-self: center;
+    border: 9px solid #14131F; border-radius: 38px; overflow: hidden;
+    box-shadow: 0 30px 70px rgba(29,0,111,.28);
+    background: #fff; max-width: 320px;
+  }
+  .phone img { width: 100%; }
+
+  /* ---- sections ---- */
+  section[id], h3[id] { scroll-margin-top: 78px; }
+  .band { padding: 72px 0; }
+  .band-cream { background: var(--cream); border-bottom: 1px solid var(--line); }
+  .sec-head { max-width: 44rem; margin-bottom: 40px; }
+  .sec-head h2 {
+    margin: 0 0 10px; color: var(--ink); font-size: clamp(1.55rem, 3vw, 2.1rem);
+    line-height: 1.2; letter-spacing: -.015em;
+  }
+  .sec-head p { margin: 0; color: var(--muted); }
+
+  /* ---- features ---- */
+  .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(255px, 1fr)); gap: 18px; }
+  .card {
+    background: #fff; border: 1px solid var(--line); border-radius: var(--radius);
+    padding: 24px 22px; box-shadow: 0 1px 2px rgba(29,0,111,.04);
+  }
+  .card::before { content: ""; display: block; width: 30px; height: 4px; border-radius: 4px; background: var(--navy); margin-bottom: 16px; }
+  .card h3 { margin: 0 0 8px; color: var(--navy); font-size: 1.0125rem; font-weight: 700; line-height: 1.35; }
+  .card p { margin: 0; font-size: .9125rem; }
+
+  /* ---- how to ---- */
+  .steps { list-style: none; margin: 0 0 44px; padding: 0; counter-reset: step; max-width: 780px; }
+  .steps li {
+    position: relative; padding: 0 0 26px 62px; counter-increment: step;
+  }
+  .steps li::before {
+    content: counter(step);
+    position: absolute; left: 0; top: 0;
+    width: 40px; height: 40px; border-radius: 50%;
+    background: var(--navy); color: #fff;
+    font-weight: 700; font-size: .95rem;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .steps li::after {
+    content: ""; position: absolute; left: 19px; top: 44px; bottom: 4px;
+    width: 2px; background: var(--line);
+  }
+  .steps li:last-child::after { display: none; }
+  .steps li h3 { margin: 4px 0 4px; color: var(--ink); font-size: 1.0375rem; font-weight: 700; }
+  .steps li p { margin: 0; font-size: .9375rem; }
+  .steps li p a { font-weight: 700; }
+
+  .shots { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+  .shot { background: #fff; border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; }
+  .shot img { width: 100%; }
+  .shot p { margin: 0; padding: 13px 16px; font-size: .85rem; color: var(--muted); border-top: 1px solid var(--line); }
+
+  /* ---- privacy policy ---- */
+  .policy h2 {
+    margin: 0 0 4px; color: var(--ink); font-size: clamp(1.55rem, 3vw, 2.1rem);
+    line-height: 1.2; letter-spacing: -.015em;
+  }
+  .policy .updated { margin: 0 0 34px; font-size: .8125rem; color: var(--muted); }
+  .policy section { margin-bottom: 34px; }
+  .policy h3 {
+    margin: 0 0 8px; color: var(--navy); font-size: 1.0375rem; font-weight: 700; line-height: 1.45;
+  }
+  .policy p { margin: 0 0 10px; }
+  .policy p:last-child { margin-bottom: 0; }
+  .policy p.sub { margin-top: 10px; }
+  .policy a { color: var(--navy); }
   .callout {
-    margin-top: 12px;
-    padding: 16px;
-    background: var(--gray-50);
-    border: 1px solid var(--gray-100);
-    border-radius: 12px;
-    font-size: 0.9375rem;
+    margin-top: 14px; padding: 18px;
+    background: var(--cream); border: 1px solid var(--line); border-radius: 12px;
+    font-size: .9375rem;
   }
   .callout p { margin-bottom: 8px; }
   .callout p:last-child { margin-bottom: 0; }
-  .callout .name { color: var(--gray-900); font-weight: 600; }
-  footer {
-    border-top: 1px solid var(--gray-200);
-    background: var(--gray-50);
-    padding: 20px;
-    font-size: 0.8125rem;
-    color: var(--gray-400);
-    text-align: center;
+  .callout .name { color: var(--ink); font-weight: 700; }
+
+  /* ---- footer ---- */
+  footer { background: var(--navy); color: #C9C4F2; padding: 44px 0 40px; font-size: .875rem; }
+  footer .cols { display: flex; flex-wrap: wrap; gap: 34px; justify-content: space-between; align-items: flex-start; }
+  footer .f-brand { display: flex; align-items: center; gap: 12px; }
+  footer .f-brand .f-logo { background: var(--cream); border-radius: 10px; padding: 6px; }
+  footer .f-brand img { width: 34px; height: 34px; }
+  footer .f-brand b { color: #fff; display: block; font-size: 1rem; }
+  footer a { color: #fff; }
+  footer .f-links { display: flex; flex-direction: column; gap: 8px; }
+  footer .f-note { margin: 30px 0 0; padding-top: 22px; border-top: 1px solid rgba(255,255,255,.18); font-size: .8125rem; }
+
+  @media (max-width: 900px) {
+    .hero .wrap { grid-template-columns: 1fr; gap: 40px; padding-top: 48px; padding-bottom: 52px; }
+    .phone { order: 2; }
+    .band { padding: 56px 0; }
+    .shots { grid-template-columns: 1fr; max-width: 420px; }
   }
-  @media (min-width: 640px) {
-    header { padding: 32px 24px; }
-    main.wrap { padding: 36px 24px 64px; }
+  @media (max-width: 640px) {
+    .site-nav .wrap { gap: 10px; }
+    .site-nav nav { gap: 13px; }
+    .site-nav nav a { font-size: .8125rem; }
+    .steps li { padding-left: 54px; }
+  }
+  @media (max-width: 420px) {
+    .brand b { display: none; }
+    .site-nav nav { gap: 10px; }
   }
 </style>
 </head>
 <body>
 
-<header>
+<header class="site-nav">
   <div class="wrap">
-    <h1>Privacy Policy</h1>
-    <p>Buklix — Last updated: October 2026</p>
+    <a class="brand" href="#top">
+      <img src="assets/logo-256.png" alt="Buklix logo">
+      <b>Buklix</b>
+    </a>
+    <nav aria-label="Sections">
+      <a href="#features">Features</a>
+      <a href="#how-to">How to use</a>
+      <a href="#privacy-policy">Privacy</a>
+      <a href="#contact">Contact</a>
+    </nav>
   </div>
 </header>
 
-<main class="wrap">
-
-  <section>
-    <h2>Privacy Policy</h2>
-    <p style="font-size:0.8125rem;color:var(--gray-400)">Last updated: October 2026</p>
-  </section>
-
-  <section>
-    <h3>1. Data Storage</h3>
-    <p>All of your business data created within Buklix &mdash; documents, customer information, product catalogs, expense records, financial reports, and account credentials &mdash; is stored exclusively on your local device using IndexedDB. None of that data is ever uploaded to any server, cloud service, or third party, and none of it is readable by anyone other than you. Your records reside physically only on the device you use, unless you yourself export a backup file and choose to store or share it elsewhere.</p>
-    <p class="sub">Some parts of the application do make network requests of their own, but they carry none of your business data. The advertising and purchase components described in section 2 contact Google servers for advertisements, consent, and licence checks using an advertising identifier &mdash; never your records. Buklix sends no document, customer, product, expense, report, or credential content anywhere.</p>
-    <p class="sub">Buklix is a single-account application. Exactly one account exists on each device installation: there are no team accounts, shared workspaces, staff logins, or user profiles that another person can view, manage, or request access to. Everything you enter is visible only to you, on this device.</p>
-  </section>
-
-  <section>
-    <h3>2. Advertising &amp; Purchases (Google)</h3>
-    <p>Buklix is free to use, with no record limits. It is supported by advertising and, optionally, by an in-app Buklix Pro upgrade that removes advertising and the watermark on exported PDFs.</p>
-    <p class="sub"><strong>Advertising.</strong> The application contains the Google Mobile Ads SDK, which shows a banner advertisement at the bottom of the screen and, on occasion, a full-screen interstitial after every 5 new documents you create. The Google Mobile Ads SDK collects the Android Advertising Identifier and may collect device and network information in order to select, deliver, and measure advertisements. That information is processed by Google under the <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Privacy Policy</a>. You can reset or opt out of the advertising identifier at any time through Android Settings &rarr; Privacy &rarr; Ads. Buklix itself does not read, store, or transmit this identifier and does not build any profile about you.</p>
-    <p class="sub"><strong>Consent.</strong> On first launch, the Google User Messaging Platform consent form is presented to users in regions that require it. You may decline personalised advertising and continue to use Buklix with no loss of functionality; non-personalised advertisements are shown instead.</p>
-    <p class="sub"><strong>Purchases.</strong> If you choose to buy Buklix Pro, the transaction is handled entirely by Google Play Billing. Prices, payment methods, billing dates, and renewal terms are managed by Google Play. Buklix only checks whether an active purchase exists on your Google account in order to switch off advertising and remove the watermark; it never sees or stores your payment details. Purchases are tied to your Google Play account and cannot be transferred to another account.</p>
-    <p class="sub">Apart from the two Google components described above, the application makes no network requests of any kind. It contains no analytics, no crash-reporting SDK, no tracking code, no cookies, no content delivery network (CDN), and no fingerprinting mechanisms, and it never transmits any of your business records anywhere.</p>
-    <p class="sub">Buklix asks you for no information about yourself beyond what is required to run the app on your own device. Version 2.1.0 removed the last remaining such question: the optional &ldquo;How did you hear about this app?&rdquo; dropdown on the create-account screen. That field was the only part of the app that recorded how you found the product, and it has been deleted from the interface and from the local user record. No demographic, location, behavioural, or marketing data is gathered at any point by Buklix itself, including during registration.</p>
-  </section>
-
-  <section>
-    <h3>3. Account &amp; Credentials</h3>
-    <p>Your master password, security question answers, and recovery key are stored locally on your device as salted and hashed values using SHA-256. Plain-text passwords are never stored, logged, or transmitted. You may download a PDF containing your credentials for offline safekeeping. David Kissward has no ability to access, reset, or recover your credentials under any circumstances. You are solely responsible for safeguarding this information. Your account is the only account on this device; there is no separate administrator or support account that can sign in as you or view your records.</p>
-  </section>
-
-  <section>
-    <h3>4. Backup &amp; Export</h3>
-    <p>The application performs automatic backups every 60 seconds to a local backup file (autobackup.buk) stored inside the application's private storage on your device. You may also manually export your data to .buk files from the Backup &amp; Restore tab. When you do, the Android file picker lets you choose the destination yourself: your device's internal storage, an SD card, a USB drive, or a cloud location such as Google Drive. Buklix does not upload anything on its own; the destination you pick is written to by the system file picker, and the file is only shared if you share it. You may also import previously created backups from the same picker. These backup files contain all your business data in JSON format, and a backup may also contain your account name and its salted password hash so that your sign-in can be recreated on a new installation. You are solely responsible for how you store, share, or transmit these files.</p>
-  </section>
-
-  <section>
-    <h3>5. Third-Party Libraries</h3>
-    <p>The application bundles the following open-source libraries locally, all of which operate entirely on your device with no data transmission: Tailwind CSS, Dexie.js, html2canvas, jsPDF, and html2pdf.js. None of these libraries collect, transmit, or store your data. No CDN is used; every dependency ships with the application.</p>
-    <p class="sub">The application also packages two Google components that are <em>not</em> offline and that do contact Google servers: the Google Mobile Ads SDK (advertising) and the Google Play Billing Library (purchases). Both are described in detail in section 2. The only permissions the application uses are <strong>INTERNET</strong> &mdash; required solely for advertisements, consent, and licence checks &mdash; and <strong>ACCESS_NETWORK_STATE</strong>, added by the advertising SDK. Buklix requests no location, contacts, camera, microphone, phone, or storage permissions.</p>
-  </section>
-
-  <section>
-    <h3 id="account-deletion">6. Data Portability &amp; Deletion</h3>
-    <p>You have full control over your data at all times. You may export your complete data set as a .buk backup file from the Backup &amp; Restore tab.</p>
-    <p><strong>To delete your account and all associated data:</strong> tap the Settings gear button in the app header, scroll down to <strong>Danger Zone</strong>, tap <strong>Delete Account</strong>, enter your master password and tap <strong>Permanently Delete</strong>. Your account and every record it holds &mdash; documents, customers, products, expenses, reports and stored credentials &mdash; are removed from your device immediately. This cannot be undone.</p>
-    <p>If you are unable to open the app, email <a href="mailto:kisswarddavid2@gmail.com?subject=Buklix%20account%20deletion%20request">kisswarddavid2@gmail.com</a> with the subject &quot;Buklix account deletion request&quot; and we will respond promptly with instructions.</p>
-    <p class="sub">Your records are stored only on your own device, so they cannot be deleted by us remotely; the in-app Delete Account action is the authoritative path. Creating a manual backup before deleting is recommended, as data removal is permanent and irreversible.</p>
-  </section>
-
-  <section>
-    <h3>7. Children&apos;s Privacy</h3>
-    <p>Buklix is not directed at individuals under the age of 13. The application does not knowingly collect any information from children. If you believe a child has provided personal information through the application, contact us immediately.</p>
-  </section>
-
-  <section>
-    <h3>8. Changes to This Policy</h3>
-    <p>David Kissward reserves the right to update this Privacy Policy as needed to reflect changes in the application, legal requirements, or business practices. The &quot;Last updated&quot; date at the top of this page reflects the most recent revision. Continued use of the application after changes constitutes acceptance of the updated policy.</p>
-  </section>
-
-  <section>
-    <h3>9. Contact</h3>
-    <p>If you have any questions, concerns, or requests regarding this Privacy Policy or your data, please contact:</p>
-    <div class="callout">
-      <p class="name">David Kissward</p>
-      <p>Creator, Buklix</p>
-      <p style="margin-top:8px"><a href="mailto:kisswarddavid2@gmail.com">kisswarddavid2@gmail.com</a></p>
-      <p><a href="tel:+233542603997">+233 542 603 997</a></p>
+<div id="top" class="hero">
+  <div class="wrap">
+    <div>
+      <img class="mark" src="assets/logo-512.png" alt="" aria-hidden="true">
+      <p class="eyebrow">Bookkeeping for Android</p>
+      <h1>Your books. On your phone. <span>Nowhere else.</span></h1>
+      <p class="lede">Buklix creates invoices, receipts and quotations, tracks income and expenses, and keeps every record on your own device. No cloud, no sync, no waiting.</p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="#features">See the features</a>
+        <a class="btn btn-ghost" href="#privacy-policy">Read the privacy policy</a>
+      </div>
+      <p class="fine">Free with no record limits &middot; Works offline &middot; Android 7.0 and newer</p>
     </div>
-  </section>
+    <div class="phone">
+      <img src="assets/shot-dashboard.png" alt="Buklix dashboard showing revenue, unpaid invoices and expenses" width="640" height="1148">
+    </div>
+  </div>
+</div>
 
-</main>
+<section id="features" class="band">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Everything a small business needs, on one screen</h2>
+      <p>Ten tools that work together, none of them phoning home.</p>
+    </div>
+    <div class="cards">
+      <div class="card">
+        <h3>Works fully offline</h3>
+        <p>Documents, customers and numbers are stored in local storage on your phone. Open the app anywhere — no internet account, no sync, no server.</p>
+      </div>
+      <div class="card">
+        <h3>Invoices, receipts &amp; quotations</h3>
+        <p>Build a document in seconds, watch the total update as you type, then export a clean PDF to share or print.</p>
+      </div>
+      <div class="card">
+        <h3>Products &amp; services</h3>
+        <p>Keep every item with its price, SKU and stock level in one catalog, ready to bill whenever a customer orders.</p>
+      </div>
+      <div class="card">
+        <h3>Customer directory</h3>
+        <p>Contacts, addresses and notes for everyone you serve — pick a customer and their details fill the document for you.</p>
+      </div>
+      <div class="card">
+        <h3>Income &amp; expense tracking</h3>
+        <p>Record what comes in and what goes out as it happens, including payments due and running balances.</p>
+      </div>
+      <div class="card">
+        <h3>Live dashboard &amp; analysis</h3>
+        <p>Revenue, unpaid invoices, expenses and trends — totals and charts that are current the moment you open the app.</p>
+      </div>
+      <div class="card">
+        <h3>Financial reports</h3>
+        <p>Summaries of income, expenses and profit whenever you need the big picture of how the business is doing.</p>
+      </div>
+      <div class="card">
+        <h3>Automatic .buk backups</h3>
+        <p>A backup is written every 60 seconds, and the Android file picker lets you export it to storage, an SD card, a USB drive or Google Drive.</p>
+      </div>
+      <div class="card">
+        <h3>Locked to you alone</h3>
+        <p>One account per device. Your master password is stored only as a salted SHA-256 hash, with a security question, recovery key and printable credentials PDF.</p>
+      </div>
+      <div class="card">
+        <h3>Free, with no limits</h3>
+        <p>Create as many documents as you like at no cost. An optional Buklix Pro upgrade removes the ads and the watermark on exported PDFs.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="how-to" class="band band-cream">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>How to use Buklix</h2>
+      <p>From a fresh install to your first backed-up document — ten steps.</p>
+    </div>
+    <ol class="steps">
+      <li>
+        <h3>Install the app</h3>
+        <p>Get Buklix from Google Play. The internet is used only for advertisements and licence checks — your data never needs it.</p>
+      </li>
+      <li>
+        <h3>Create your account</h3>
+        <p>Choose a master password, a security question and a recovery key, then save the generated credentials PDF somewhere safe. Exactly one account lives on each device.</p>
+      </li>
+      <li>
+        <h3>Set up your business profile</h3>
+        <p>Open the Business Profile tab and enter your business name, address, contact details, document colours, payment details and logo — they appear on every document you create.</p>
+      </li>
+      <li>
+        <h3>Add your products &amp; services</h3>
+        <p>In Products &amp; Services, record each item once with its price, SKU and stock level.</p>
+      </li>
+      <li>
+        <h3>Add your customers</h3>
+        <p>In Customers, save the people and companies you work with, along with their contacts and addresses.</p>
+      </li>
+      <li>
+        <h3>Create your first document</h3>
+        <p>Open Create Document, choose invoice, receipt or quotation, pick a customer, add your line items and watch the live preview. Save it, then export it as a PDF and share it with your customer.</p>
+      </li>
+      <li>
+        <h3>Track income &amp; expenses</h3>
+        <p>Log transactions and expenses as they happen. The dashboard and analysis screens update on their own.</p>
+      </li>
+      <li>
+        <h3>Review your reports</h3>
+        <p>The Analysis tab shows trends, and the Financial Report tab gives you income, expenses and profit in one view.</p>
+      </li>
+      <li>
+        <h3>Back up regularly</h3>
+        <p>In Backup &amp; Restore, export a .buk file to any destination you trust. Moving to a new phone? Import that file and everything comes back.</p>
+      </li>
+      <li>
+        <h3>Delete your data whenever you want</h3>
+        <p>Settings &rarr; Danger Zone &rarr; Delete Account removes every record from your device instantly. <a href="#account-deletion">See Data Portability &amp; Deletion</a>.</p>
+      </li>
+    </ol>
+    <div class="shots">
+      <figure class="shot">
+        <img src="assets/shot-create.png" alt="Creating an invoice in Buklix with a live PDF preview" width="640" height="1148" loading="lazy">
+        <p>Build an invoice — the total updates as you type.</p>
+      </figure>
+      <figure class="shot">
+        <img src="assets/shot-backup.png" alt="Buklix Backup and Restore screen" width="640" height="1148" loading="lazy">
+        <p>Send a backup anywhere: storage, SD card, USB or Drive.</p>
+      </figure>
+      <figure class="shot">
+        <img src="assets/shot-financial-report.png" alt="Buklix financial report screen" width="640" height="1148" loading="lazy">
+        <p>Your full financial picture, one tap away.</p>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<div id="privacy-policy" class="band policy">
+  <div class="narrow">
+    <h2>Privacy Policy</h2>
+    <p class="updated">Last updated: October 2026</p>
+
+    <section>
+      <h3>1. Data Storage</h3>
+      <p>All of your business data created within Buklix &mdash; documents, customer information, product catalogs, expense records, financial reports, and account credentials &mdash; is stored exclusively on your local device using IndexedDB. None of that data is ever uploaded to any server, cloud service, or third party, and none of it is readable by anyone other than you. Your records reside physically only on the device you use, unless you yourself export a backup file and choose to store or share it elsewhere.</p>
+      <p class="sub">Some parts of the application do make network requests of their own, but they carry none of your business data. The advertising and purchase components described in section 2 contact Google servers for advertisements, consent, and licence checks using an advertising identifier &mdash; never your records. Buklix sends no document, customer, product, expense, report, or credential content anywhere.</p>
+      <p class="sub">Buklix is a single-account application. Exactly one account exists on each device installation: there are no team accounts, shared workspaces, staff logins, or user profiles that another person can view, manage, or request access to. Everything you enter is visible only to you, on this device.</p>
+    </section>
+
+    <section>
+      <h3>2. Advertising &amp; Purchases (Google)</h3>
+      <p>Buklix is free to use, with no record limits. It is supported by advertising and, optionally, by an in-app Buklix Pro upgrade that removes advertising and the watermark on exported PDFs.</p>
+      <p class="sub"><strong>Advertising.</strong> The application contains the Google Mobile Ads SDK, which shows a banner advertisement at the bottom of the screen and, on occasion, a full-screen interstitial after every 5 new documents you create. The Google Mobile Ads SDK collects the Android Advertising Identifier and may collect device and network information in order to select, deliver, and measure advertisements. That information is processed by Google under the <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Privacy Policy</a>. You can reset or opt out of the advertising identifier at any time through Android Settings &rarr; Privacy &rarr; Ads. Buklix itself does not read, store, or transmit this identifier and does not build any profile about you.</p>
+      <p class="sub"><strong>Consent.</strong> On first launch, the Google User Messaging Platform consent form is presented to users in regions that require it. You may decline personalised advertising and continue to use Buklix with no loss of functionality; non-personalised advertisements are shown instead.</p>
+      <p class="sub"><strong>Purchases.</strong> If you choose to buy Buklix Pro, the transaction is handled entirely by Google Play Billing. Prices, payment methods, billing dates, and renewal terms are managed by Google Play. Buklix only checks whether an active purchase exists on your Google account in order to switch off advertising and remove the watermark; it never sees or stores your payment details. Purchases are tied to your Google Play account and cannot be transferred to another account.</p>
+      <p class="sub">Apart from the two Google components described above, the application makes no network requests of any kind. It contains no analytics, no crash-reporting SDK, no tracking code, no cookies, no content delivery network (CDN), and no fingerprinting mechanisms, and it never transmits any of your business records anywhere.</p>
+      <p class="sub">Buklix asks you for no information about yourself beyond what is required to run the app on your own device. Version 2.1.0 removed the last remaining such question: the optional &ldquo;How did you hear about this app?&rdquo; dropdown on the create-account screen. That field was the only part of the app that recorded how you found the product, and it has been deleted from the interface and from the local user record. No demographic, location, behavioural, or marketing data is gathered at any point by Buklix itself, including during registration.</p>
+    </section>
+
+    <section>
+      <h3>3. Account &amp; Credentials</h3>
+      <p>Your master password, security question answers, and recovery key are stored locally on your device as salted and hashed values using SHA-256. Plain-text passwords are never stored, logged, or transmitted. You may download a PDF containing your credentials for offline safekeeping. David Kissward has no ability to access, reset, or recover your credentials under any circumstances. You are solely responsible for safeguarding this information. Your account is the only account on this device; there is no separate administrator or support account that can sign in as you or view your records.</p>
+    </section>
+
+    <section>
+      <h3>4. Backup &amp; Export</h3>
+      <p>The application performs automatic backups every 60 seconds to a local backup file (autobackup.buk) stored inside the application's private storage on your device. You may also manually export your data to .buk files from the Backup &amp; Restore tab. When you do, the Android file picker lets you choose the destination yourself: your device's internal storage, an SD card, a USB drive, or a cloud location such as Google Drive. Buklix does not upload anything on its own; the destination you pick is written to by the system file picker, and the file is only shared if you share it. You may also import previously created backups from the same picker. These backup files contain all your business data in JSON format, and a backup may also contain your account name and its salted password hash so that your sign-in can be recreated on a new installation. You are solely responsible for how you store, share, or transmit these files.</p>
+    </section>
+
+    <section>
+      <h3>5. Third-Party Libraries</h3>
+      <p>The application bundles the following open-source libraries locally, all of which operate entirely on your device with no data transmission: Tailwind CSS, Dexie.js, html2canvas, jsPDF, and html2pdf.js. None of these libraries collect, transmit, or store your data. No CDN is used; every dependency ships with the application.</p>
+      <p class="sub">The application also packages two Google components that are <em>not</em> offline and that do contact Google servers: the Google Mobile Ads SDK (advertising) and the Google Play Billing Library (purchases). Both are described in detail in section 2. The only permissions the application uses are <strong>INTERNET</strong> &mdash; required solely for advertisements, consent, and licence checks &mdash; and <strong>ACCESS_NETWORK_STATE</strong>, added by the advertising SDK. Buklix requests no location, contacts, camera, microphone, phone, or storage permissions.</p>
+    </section>
+
+    <section>
+      <h3 id="account-deletion">6. Data Portability &amp; Deletion</h3>
+      <p>You have full control over your data at all times. You may export your complete data set as a .buk backup file from the Backup &amp; Restore tab.</p>
+      <p><strong>To delete your account and all associated data:</strong> tap the Settings gear button in the app header, scroll down to <strong>Danger Zone</strong>, tap <strong>Delete Account</strong>, enter your master password and tap <strong>Permanently Delete</strong>. Your account and every record it holds &mdash; documents, customers, products, expenses, reports and stored credentials &mdash; are removed from your device immediately. This cannot be undone.</p>
+      <p>If you are unable to open the app, email <a href="mailto:kisswarddavid2@gmail.com?subject=Buklix%20account%20deletion%20request">kisswarddavid2@gmail.com</a> with the subject &quot;Buklix account deletion request&quot; and we will respond promptly with instructions.</p>
+      <p class="sub">Your records are stored only on your own device, so they cannot be deleted by us remotely; the in-app Delete Account action is the authoritative path. Creating a manual backup before deleting is recommended, as data removal is permanent and irreversible.</p>
+    </section>
+
+    <section>
+      <h3>7. Children&apos;s Privacy</h3>
+      <p>Buklix is not directed at individuals under the age of 13. The application does not knowingly collect any information from children. If you believe a child has provided personal information through the application, contact us immediately.</p>
+    </section>
+
+    <section>
+      <h3>8. Changes to This Policy</h3>
+      <p>David Kissward reserves the right to update this Privacy Policy as needed to reflect changes in the application, legal requirements, or business practices. The &quot;Last updated&quot; date at the top of this page reflects the most recent revision. Continued use of the application after changes constitutes acceptance of the updated policy.</p>
+    </section>
+
+    <section>
+      <h3 id="contact">9. Contact</h3>
+      <p>If you have any questions, concerns, or requests regarding this Privacy Policy or your data, please contact:</p>
+      <div class="callout">
+        <p class="name">David Kissward</p>
+        <p>Creator, Buklix</p>
+        <p style="margin-top:8px"><a href="mailto:kisswarddavid2@gmail.com">kisswarddavid2@gmail.com</a></p>
+        <p><a href="tel:+233542603997">+233 542 603 997</a></p>
+      </div>
+    </section>
+  </div>
+</div>
 
 <footer>
-  Buklix — a local-only bookkeeping application for Android.
+  <div class="wrap">
+    <div class="cols">
+      <div class="f-brand">
+        <span class="f-logo"><img src="assets/logo-256.png" alt=""></span>
+        <span><b>Buklix</b>Local-only bookkeeping for Android</span>
+      </div>
+      <div class="f-links">
+        <a href="#features">Features</a>
+        <a href="#how-to">How to use</a>
+        <a href="#privacy-policy">Privacy Policy</a>
+        <a href="#account-deletion">Delete your data</a>
+      </div>
+      <div class="f-links">
+        <a href="mailto:kisswarddavid2@gmail.com">kisswarddavid2@gmail.com</a>
+        <a href="tel:+233542603997">+233 542 603 997</a>
+      </div>
+    </div>
+    <p class="f-note">Buklix — a local-only bookkeeping application for Android. &copy; 2026 David Kissward.</p>
+  </div>
 </footer>
 
 </body>
