@@ -144,6 +144,38 @@
   .shot img { width: 100%; height: 420px; object-fit: cover; object-position: top; }
   .shot p { margin: 0; padding: 13px 16px; font-size: .85rem; color: var(--muted); border-top: 1px solid var(--line); }
 
+  /* ---- banner slider ---- */
+  .banner-band { padding: 44px 0 6px; }
+  .slider {
+    position: relative; aspect-ratio: 1600 / 782;
+    background: #fff; border: 1px solid var(--line); border-radius: var(--radius);
+    overflow: hidden; box-shadow: 0 16px 44px rgba(29,0,111,.16);
+  }
+  .slide { position: absolute; inset: 0; opacity: 0; transition: opacity .6s ease; }
+  .slide.active { opacity: 1; }
+  .slide img { width: 100%; height: 100%; object-fit: cover; }
+  .slide-btn {
+    position: absolute; top: 50%; transform: translateY(-50%);
+    width: 44px; height: 44px; padding: 0; border: 0; border-radius: 50%;
+    background: rgba(29,0,111,.82); color: #fff;
+    font-size: 1.5rem; line-height: 1; cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    transition: background .2s ease;
+  }
+  .slide-btn:hover { background: var(--navy-dark); }
+  .slide-prev { left: 14px; }
+  .slide-next { right: 14px; }
+  .slider-dots { display: flex; gap: 9px; justify-content: center; margin: 14px 0 0; }
+  .slider-dots button {
+    width: 10px; height: 10px; padding: 0; border: 0; border-radius: 50%;
+    background: #C9C6DA; cursor: pointer;
+    transition: background .2s ease, transform .2s ease;
+  }
+  .slider-dots button[aria-current="true"] { background: var(--navy); transform: scale(1.25); }
+  @media (prefers-reduced-motion: reduce) {
+    .slide { transition: none; }
+  }
+
   /* ---- privacy policy ---- */
   .policy h2 {
     margin: 0 0 4px; color: var(--ink); font-size: clamp(1.55rem, 3vw, 2.1rem);
@@ -231,6 +263,25 @@
     </div>
   </div>
 </div>
+
+<section class="banner-band" aria-label="Buklix highlights">
+  <div class="wrap">
+    <div class="slider" id="bannerSlider" role="region" aria-roledescription="carousel" aria-label="Buklix banners" tabindex="0">
+      <div class="slide active" role="group" aria-roledescription="slide" aria-label="1 of 2">
+        <img src="assets/banner-1.jpg" alt="Buklix promotional banner" width="1600" height="782">
+      </div>
+      <div class="slide" role="group" aria-roledescription="slide" aria-label="2 of 2" aria-hidden="true">
+        <img src="assets/banner-2.jpg" alt="Buklix features banner" width="1600" height="782" loading="lazy">
+      </div>
+      <button class="slide-btn slide-prev" type="button" aria-label="Previous banner">&#8249;</button>
+      <button class="slide-btn slide-next" type="button" aria-label="Next banner">&#8250;</button>
+    </div>
+    <div class="slider-dots" role="group" aria-label="Choose banner">
+      <button type="button" aria-label="Show banner 1" aria-current="true"></button>
+      <button type="button" aria-label="Show banner 2" aria-current="false"></button>
+    </div>
+  </div>
+</section>
 
 <section id="features" class="band">
   <div class="wrap">
@@ -438,6 +489,53 @@
     <p class="f-note">Buklix — a local-only bookkeeping application for Android. &copy; 2026 David Kissward.</p>
   </div>
 </footer>
+
+<script>
+(function () {
+  var slider = document.getElementById('bannerSlider');
+  if (!slider) return;
+  var slides = slider.querySelectorAll('.slide');
+  var dots = document.querySelectorAll('.slider-dots button');
+  var index = 0, timer = null;
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function go(n) {
+    index = (n + slides.length) % slides.length;
+    slides.forEach(function (s, i) {
+      s.classList.toggle('active', i === index);
+      s.setAttribute('aria-hidden', i === index ? 'false' : 'true');
+    });
+    dots.forEach(function (d, i) {
+      d.setAttribute('aria-current', i === index ? 'true' : 'false');
+    });
+  }
+  function stop() { if (timer) { clearInterval(timer); timer = null; } }
+  function start() { if (reduce) return; stop(); timer = setInterval(function () { go(index + 1); }, 5000); }
+
+  slider.querySelector('.slide-prev').addEventListener('click', function () { go(index - 1); start(); });
+  slider.querySelector('.slide-next').addEventListener('click', function () { go(index + 1); start(); });
+  dots.forEach(function (d, i) { d.addEventListener('click', function () { go(i); start(); }); });
+  slider.addEventListener('mouseenter', stop);
+  slider.addEventListener('mouseleave', start);
+  slider.addEventListener('focusin', stop);
+  slider.addEventListener('focusout', start);
+  slider.addEventListener('keydown', function (e) {
+    if (e.key === 'ArrowLeft') { go(index - 1); start(); }
+    if (e.key === 'ArrowRight') { go(index + 1); start(); }
+  });
+  var touchX = null;
+  slider.addEventListener('touchstart', function (e) { touchX = e.touches[0].clientX; stop(); }, { passive: true });
+  slider.addEventListener('touchend', function (e) {
+    if (touchX !== null) {
+      var dx = e.changedTouches[0].clientX - touchX;
+      if (Math.abs(dx) > 40) { go(index + (dx < 0 ? 1 : -1)); }
+      touchX = null;
+    }
+    start();
+  }, { passive: true });
+  start();
+})();
+</script>
 
 </body>
 </html>
